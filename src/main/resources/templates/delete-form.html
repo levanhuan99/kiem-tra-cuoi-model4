@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+      id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="span3 well">
+    <legend>Thành phố <span th:text="${city.country.name}"></span></legend>
+    <form class="form control" th:action="@{/city/delete}" method="post" th:object="${city}">
+
+        <input th:field="*{id}" type="hidden">
+        <p th:field="*{name}" th:text="${city.name}"></p>
+        <p th:field="*{country}" th:text="${city.country.name}"></p>
+        <p th:field="*{area}" th:text="${city.area}"></p>
+        <p th:field="*{population}" th:text="${city.population}"></p>
+        <p th:field="*{GPA}" th:text="${city.GPA}"></p>
+        <p th:field="*{description}" th:text="${city.description}"></p>
+        <button class="btn btn-warning" type="submit">delete</button>
+    </form>
+</div>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+      id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="span3 well">
+    <legend>Thành phố <span th:text="${city.country.name}"></span></legend>
+    <form class="form control" th:action="@{/city/edit}" method="post" th:object="${city}">
+
+        <input th:field="*{id}" type="hidden">
+        <input th:field="*{name}" type="text">
+        <select th:field="*{country}">
+            <option  th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"> </option>
+        </select>
+        <input th:field="*{area}" type="number">
+        <input th:field="*{population}" type="number">
+        <input th:field="*{GPA}" type="number">
+        <textarea th:field="*{description}" type="text"></textarea>
+        <button class="btn btn-warning" type="submit">edit</button>
+    </form>
+</div>
+</html>
